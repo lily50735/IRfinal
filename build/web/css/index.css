@@ -4,67 +4,59 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : Apr 11, 2015, 3:58:29 PM
-    Author     : chuyuwang
-*/
-#fbbutton
-{
-   margin-left: 1100px;
+  Created on : Apr 11, 2015, 3:58:29 PM
+  Author     : chuyuwang
+  */
+.container{
+  text-align: center;
 }
+#signinButton{
+  position: relative;
+  top: 10px;
+}
+.button{
+  width:70px;
+  display: inline;
 
+}
+.hide{
+  display: none;
+}
+#buttons{
+  position: absolute;
+  top: 0px;
+  right: 15px;
+  width: 250px;
+}
+#glogout{
+  position: relative;
+  top: 7px;
+  left:2px;
+}
 #status
 {
-    margin-top: -28px;
+  margin-top: -28px;
 }
 
-#gpbutton
+#logo
 {
-    margin-left: 1185px;
-    margin-top: -28px;
+  text-align: center;
+  margin-top: 150px;;
 }
-
-
-#logoutbutton
-{
-    margin-left: 108px;
-    margin-top: -40px;
+.inline{
+  display: inline;
 }
-#img
-{
-    text-align: center;
-    margin-top: 150px;;
-}
-#img img
-{
-    width: 160px;
-    height: 80px;
-}
-#input
-{
-   text-align: center;
-}
-input[type=text]
-{
-    height:25px;
-    width: 70%;
-    border-radius: 10px;
-    font-size: 1em;
+form input[type=text]{
+  height:25px;
+  width: 60%;
+  border-radius: 10px;
+  font-size: 1em;
 }
 input:-webkit-input-placeholder {
-   font-size: 1em;
-   font-family: serif;
+  font-size: 1em;
+  font-family: serif;
 }
-#search input[type=image]
-{
-    width: 30px;
-    height: 30px;
-}
-#search
-{
-  float: right;
-  margin-right: 320px;
-  margin-top: -35px;
-}
+
 
 
 

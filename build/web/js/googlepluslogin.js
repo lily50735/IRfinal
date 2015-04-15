@@ -37,6 +37,8 @@ function loginCallback(result)
  
             var str = "Welcome to Google+:" + resp['displayName'] + "<br>";
             document.getElementById("profile").innerHTML = str;
+            document.getElementById("glogout").setAttribute("class","inline button");
+            document.getElementById("glogin").setAttribute("class","hide button");
         });
  
     }
