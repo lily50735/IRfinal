@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="js/facebooklogin.js"></script>
+    </head>
+   <body onLoad="fbFetch()">
+       <script type="text/javascript">  
+       function fbFetch(){
+//Set Url of JSON data from the facebook graph api. make sure callback is set with a '?' to overcome the cross domain problems with JSON
+var url = "https://graph.facebook.com/search?access_token=AAACjeiZB6FgIBADGnPw2QGbtZA2aZBAPGlSLZACk2S49CfDTJgcSxbjmAGIZAe3Iqm8SAhmklZBratqpxialzQlEdx9LTMmNBga8EZAfnZCbZBZAMDGntgdKHe"
+//Use jQuery getJSON method to fetch the data from the url and then create our unordered list with the relevant data.
+$.getJSON(url,function(json){
+var html = "<ul>";
+//loop through and within data array's retrieve the message variable.
+//XSS ATTACK FIX AS OF 6/1/12 PLEASE UPDATE TO THIS ASAP.
+$.each(json.data,function(i,fb){
+html += "<li>" + $('<div>').html(fb.message).text() + "</li>";
+});
+html += "</ul>";
+//A little animation once fetched
+$('.facebookfeed').animate({opacity:0}, 500, function(){
+$('.facebookfeed').html(html);
+});
+$('.facebookfeed').animate({opacity:1}, 500);
+});
+};
+
+
+       
+       </script>
+<div class="facebookfeed">Loading...</div>
+    </body>
+</html>
