@@ -46,7 +46,7 @@ function loginCallback(result)
 }
 function onLoadCallback()
 {
-    gapi.client.setApiKey('AIzaSyDP-bcqMd3WmS94A7oH8B35ZjTuOWFtfYM');
+    gapi.client.setApiKey('AIzaSyBwBtaWG-tp7I2UQrmm2y4_2cipMui-mNk');
     gapi.client.load('plus', 'v1',function(){});
 }
  
