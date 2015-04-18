@@ -10,24 +10,24 @@ function show() {
     var query = document.getElementById("query").value;
 
     if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
-        xhr1 = new XMLHttpRequest();
-        // xhr2 = new XMLHttpRequest();
+        // xhr1 = new XMLHttpRequest();
+        xhr2 = new XMLHttpRequest();
     } else { // code for IE6, IE5
-        xhr1 = new ActiveXObject("Microsoft.XMLHTTP");
-        // xhr2 = new ActiveXObject("Microsoft.XMLHTTP");
+        // xhr1 = new ActiveXObject("Microsoft.XMLHTTP");
+        xhr2 = new ActiveXObject("Microsoft.XMLHTTP");
     }
 
-    xhr1.onreadystatechange = callfacebook;
-    // xhr2.onreadystatechange = callgoogleplus;
+    // xhr1.onreadystatechange = callfacebook;
+    xhr2.onreadystatechange = callgoogleplus;
 
-    var fbtoken = "CAACEdEose0cBAFlsISihjUscFuXZA1wQlXqKiuAl0eAnlOQXCJ9inb0Ig5hMoGBNOUOTCtaiq6wbeMPmEgaGw6qQCMqu9LwM5zOGdIZBtqO8bDQgdPkylCZCNZBWoFqHiG9IIJaQ38EpxB5yCu5chUfB75CFUPOGlXqZClC5A4sqkMmIa1bBNqOIwPJ7lPj9RKxnEGQaXp2z30LtcBRNy";
-    // var gptoken = "ya29.WQGldPsiiWX6VQxAYupINHN36Uqn5zQ1YhurUEl3ER-Zs1xVHXW6wq7TjkhyvlylOxqnRZX5Y6uQ0w";
+    // var fbtoken = "CAACEdEose0cBAFlsISihjUscFuXZA1wQlXqKiuAl0eAnlOQXCJ9inb0Ig5hMoGBNOUOTCtaiq6wbeMPmEgaGw6qQCMqu9LwM5zOGdIZBtqO8bDQgdPkylCZCNZBWoFqHiG9IIJaQ38EpxB5yCu5chUfB75CFUPOGlXqZClC5A4sqkMmIa1bBNqOIwPJ7lPj9RKxnEGQaXp2z30LtcBRNy";
+    var gptoken = "ya29.WQGldPsiiWX6VQxAYupINHN36Uqn5zQ1YhurUEl3ER-Zs1xVHXW6wq7TjkhyvlylOxqnRZX5Y6uQ0w";
 
-    xhr1.open("GET", "https://graph.facebook.com/search?q=" + query + "&type=place&fields=id,name,picture&access_token=" + fbtoken, true);
-    // xhr2.open("GET", "https://www.googleapis.com/plus/v1/people?query=" + query + "&access_token=" + gptoken, true);
+    // xhr1.open("GET", "https://graph.facebook.com/search?q=" + query + "&type=place&fields=id,name,picture&access_token=" + fbtoken, true);
+    xhr2.open("GET", "https://www.googleapis.com/plus/v1/people?query=" + query + "&access_token=" + gptoken, true);
 
-    xhr1.send();
-    // xhr2.send();
+    // xhr1.send();
+    xhr2.send();
 }
 
 function callfacebook() {
@@ -110,17 +110,14 @@ function callgoogleplus() {
             //            alert(xhr2.status);
             // status of 200 signifies sucessful HTTP call
             if (xhr2.status === 200) {
-                //clearoption();
-                //            alert(xhr2.responseText);
+
                 var JSONresp = JSON.parse(xhr2.responseText);
-                //            id =  JSONresp["name"]; 
 
                 items = JSONresp["items"];
-                
-
 
                 var name = [items.length];
                 var id = [items.length];
+                
 
                 var myNode = document.getElementById("result");
 
@@ -128,8 +125,9 @@ function callgoogleplus() {
                     myNode.removeChild(myNode.firstChild);
                 }
                 var max = 50;
-                for (var i = 0; i < max; i++) {
-                    name = items[i].displayname;
+                for ( i = 0; i < max; i++) {
+                    console.log(items[i].displayName);
+                    name = items[i].displayName;
                     id = items[i].id;
 
                     var div = document.createElement("div");
