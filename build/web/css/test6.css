@@ -1,0 +1,11 @@
+#result{
+	border-radius: 5px;
+	border: 1px;
+}
+.result{
+	width: 300px;
+	border-radius: 5px;
+}
+.inline{
+	display: inline-block;
+}

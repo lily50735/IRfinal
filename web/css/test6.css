@@ -1,0 +1,17 @@
+#result{
+	border-radius: 5px;
+	text-align: center;
+}
+.result{
+	width: 300px;
+	border-radius: 5px;
+	border: 1px;
+	padding-top: 5px;
+}
+.inline{
+	display: inline-block;
+}
+#source img{
+	height: 25px;
+	padding-left: 15px;
+}
