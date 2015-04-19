@@ -34,18 +34,24 @@ function loginCallback(result)
                     }
                 }
             }
-            var sourceDiv = document.createElement("div");
-            sourceDiv.setAttribute("id", "indexsource");
-            sourceDiv.setAttribute("class", "inline");
-            var sourceImg = document.createElement("img");
-            sourceImg.setAttribute("src", "image/gp.png");
-            sourceDiv.appendChild(sourceImg);
-            var nameText = document.createTextNode(resp['displayName']);
 
-            document.getElementById("google").appendChild(sourceDiv);
-            document.getElementById("google").appendChild(nameText);
+
+            var str = "Welcome to Google+:" + resp['displayName'] + "<br>";
+            document.getElementById("google").innerHTML = str;
             document.getElementById("glogout").setAttribute("class","inline button");
             document.getElementById("glogin").setAttribute("class","hide button");
+            // var sourceDiv = document.createElement("div");
+            // sourceDiv.setAttribute("id", "indexsource");
+            // sourceDiv.setAttribute("class", "inline");
+            // var sourceImg = document.createElement("img");
+            // sourceImg.setAttribute("src", "image/gp.png");
+            // sourceDiv.appendChild(sourceImg);
+            // var nameText = document.createTextNode(resp['displayName']);
+
+            // document.getElementById("google").appendChild(sourceDiv);
+            // document.getElementById("google").appendChild(nameText);
+            // document.getElementById("glogout").setAttribute("class","inline button");
+            // document.getElementById("glogin").setAttribute("class","hide button");
         });
  
     }
