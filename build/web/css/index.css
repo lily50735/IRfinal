@@ -46,6 +46,16 @@ and open the template in the editor.
   bottom: 50px;
   left:80px;
 }
+#status
+{
+    position: relative;
+    right: 500px;
+}
+#profile
+{
+    position: relative;
+    right: 525px;
+}
 /*#status
 {
   margin-top: -28px;
