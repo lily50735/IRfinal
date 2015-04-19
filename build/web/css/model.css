@@ -1,0 +1,76 @@
+#result{
+	border-radius: 5px;
+	text-align: center;
+}
+.result{
+	width: 250px;
+	border-radius: 5px;
+	border: 1px;
+	padding-top: 5px;
+}
+.inline{
+	display: inline-block;
+}
+.title{
+  font-size: 1.4em;
+}
+#source img{
+	position: relative;
+  height: 25px;
+  top:5px;
+	padding-left: 15px;
+}
+.panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+.img-rounded {
+  border-radius: 6px;
+}
+.source span{
+	font-size: 1.2em;
+}
+.panel-footer {
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.text-info {
+  color: #31708f;
+  font-size: 0.8em;
+}
+.panel-heading {
+  vertical-align: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  text-align: center;
+}
+.panel-default a img{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.panel-default {
+	text-align: center;
+  border-color: #ddd;
+}
+.panel-default > .panel-heading {
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+}
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #ddd;
+}
+.panel-default > .panel-heading .badge {
+  color: #f5f5f5;
+  background-color: #333;
+}
+

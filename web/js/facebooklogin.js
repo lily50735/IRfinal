@@ -62,10 +62,20 @@ function logoutFacebook() {
 
 
   function testAPI() {
-    console.log('Welcome!  Fetching your information…. ');
+
+    console.log('Welcome!  Fetching your information... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Welcome to Facebook, ' + response.name + '!';
+
+      var sourceDiv = document.createElement("div");
+      sourceDiv.setAttribute("id", "indexsource");
+      sourceDiv.setAttribute("class", "inline");
+      var sourceImg = document.createElement("img");
+      sourceImg.setAttribute("src", "image/fb.png");
+      sourceDiv.appendChild(sourceImg);
+      var nameText = document.createTextNode(response.name);
+
+      document.getElementById("facebook").appendChild(sourceDiv);
+      document.getElementById("facebook").appendChild(nameText);
     });
   }
