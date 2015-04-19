@@ -5,6 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
+<<<<<<< HEAD
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" type="text/css" href="css/index.css">
@@ -52,6 +53,42 @@ and open the template in the editor.
 
                 <div id="status">
                 </div><!--/#status-->
+=======
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script src="https://apis.google.com/js/client:platform.js" async defer></script>
+        
+
+        <title>HOME</title>
+    </head>
+    <body>
+        <script src="js/facebooklogin.js"></script>
+        <script src="js/googlepluslogin.js"></script>
+        
+        <div class="container">    
+            <div id="buttons">  
+                <div class="button">
+                    <fb:login-button autologoutlink="true" perms="user_likes" size="large" onlogin="checkLoginState();" ></fb:login-button>
+                </div>
+                <div id="glogin" class="button">
+                    <span id="signinButton" class="inline">
+                        <button
+                            class="g-signin"
+                            data-cookiepolicy="single_host_origin"
+                            data-clientid="379488416256-jcbci0i4v87rfe1cgaetbfmrk8e726c7.apps.googleusercontent.com"
+                            data-scope="https://www.googleapis.com/auth/plus.login"
+                            data-callback="loginCallback"
+                            data-approvalprompt="force"
+                            >
+                        </button>
+                    </span>
+                </div>
+                <div id="glogout" class="button hide" >
+                    <input type="image" src="image/signout.png" height= "32px" onclick="logout()" />
+                </div>
+            </div><!--/#buttons-->
+>>>>>>> origin/master
 
                 <div id="profile"></div><!--/#profile-->
 
@@ -118,7 +155,11 @@ and open the template in the editor.
         <div class="search">
             <form >
                 <input type="text"  placeholder=" Search..." >
+<<<<<<< HEAD
                 <input type="image" class="inline" src="image/search1.png" width="23px" alt="submit">
+=======
+                <input type="image" class="inline" src="image/search1.png" width="23px"alt="submit">
+>>>>>>> origin/master
             </form>
         </div>
     </div><!--/#container-->

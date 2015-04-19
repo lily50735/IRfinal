@@ -25,7 +25,7 @@ function logoutFacebook() {
     if (response.status === 'connected') {
       testAPI();
     } else {
-      document.getElementById('status').innerHTML ='';
+      document.getElementById('facebook').innerHTML ='';
     }
   }
 
@@ -67,15 +67,18 @@ function logoutFacebook() {
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
 
-      var sourceDiv = document.createElement("div");
-      sourceDiv.setAttribute("id", "indexsource");
-      sourceDiv.setAttribute("class", "inline");
-      var sourceImg = document.createElement("img");
-      sourceImg.setAttribute("src", "image/fb.png");
-      sourceDiv.appendChild(sourceImg);
-      var nameText = document.createTextNode(response.name);
+      document.getElementById('facebook').innerHTML =
+        'Welcome to Facebook, ' + response.name + '!';
 
-      document.getElementById("facebook").appendChild(sourceDiv);
-      document.getElementById("facebook").appendChild(nameText);
+      // var sourceDiv = document.createElement("div");
+      // sourceDiv.setAttribute("id", "indexsource");
+      // sourceDiv.setAttribute("class", "inline");
+      // var sourceImg = document.createElement("img");
+      // sourceImg.setAttribute("src", "image/fb.png");
+      // sourceDiv.appendChild(sourceImg);
+      // var nameText = document.createTextNode(response.name);
+
+      // document.getElementById("facebook").appendChild(sourceDiv);
+      // document.getElementById("facebook").appendChild(nameText);
     });
   }
