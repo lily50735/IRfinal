@@ -17,11 +17,11 @@ function show() {
         xhr2 = new ActiveXObject("Microsoft.XMLHTTP");
     }
 
-    xhr1.onreadystatechange = callfacebook;
-    xhr2.onreadystatechange = callgoogleplus;
+    xhr1.onreadystatechange = call;
+    xhr2.onreadystatechange = call;
 
-    var fbtoken = "CAACEdEose0cBAFdTaUENsCqf3TIrmjnqpWTb0lh5qkXvF9NXerlvLYU4CYWVqqmBmiRF9H1t2YYiHiC6ou4oGATnrhvL7M4RcQaaM5MGK8IXXf7j0Ef4XNbcH4wJ2spIuM8rxg9JiVCJONsBgSi1iZB7hZBZBZBX4GdmjpR1HOLjZBKxPoAttPkMdVminLP6WtyD6k5t7njW34yJkVNdn";
-    var gptoken = "ya29.WQGxB-FooONXp-FR3KLw1LONfw9EtX1QP5NTLe0FjkRZpk0Ww1KFdxeoIZ2h1CfWVsT72AQvRulBjA";
+    var fbtoken = "CAACEdEose0cBAMZAXisr7ZCFMi6F76VJes3jmpYEyd2STm2rPg8HbGRVDnmfBTwaervv5UfL3OJNQEFQdTywpn3muA3IU29NKk0xeoEdlH0Ht8EJULssZBFuMjLa2EI8ZBdS76z2ZATafI2ZAK7lCQJZAAHvwLWd3ARYepOWZAoQZA13eZC7MI06IQjVOzLvdTkWVhDJL1A5DX5Q76U6fFTijt";
+    var gptoken = "ya29.WgHYBeVtt-0WfzndUfzkEXJKEI8FYLw9XyKNUTbWF7NMWEB3n3DPxDXLF58SSrNAZk0A-6p1_LdmVQ";
 
     xhr1.open("GET", "https://graph.facebook.com/v2.3/search?q=" + query + "&type=user&access_token=" + fbtoken, true);
     xhr2.open("GET", "https://www.googleapis.com/plus/v1/people?query=" + query + "&access_token=" + gptoken, true);
@@ -30,28 +30,21 @@ function show() {
     xhr2.send();
 }
 
-function callfacebook() {
-    //console.log(xhr1.readyState);
-    if (xhr1.readyState === 4) {
-        //            alert(xhr1.status);
-        // status of 200 signifies sucessful HTTP call
+function call() {
+    var max = 50;
+    
+   if (xhr1.readyState === 4) {
         if (xhr1.status === 200) {
-            //clearoption();
-            //            alert(xhr1.responseText);
             var JSONresp = JSON.parse(xhr1.responseText);
-            //            id =  JSONresp["name"]; 
-
             data = JSONresp["data"];
             var name = [data.length];
             var id = [data.length];
-            var x = [data.data];
 
             var myNode = document.getElementById("result1");
-
             while (myNode.firstChild) {
                 myNode.removeChild(myNode.firstChild);
             }
-            var max = 50;
+            
             for (var i = 0; i < max; i++) {
                 name = data[i].name;
                 id = data[i].id;
@@ -61,12 +54,11 @@ function callfacebook() {
 
                 //show image
                 var a = document.createElement("a");
-                a.setAttribute("href", "https://www.facebook.com/profile.php?id=" + id + "&fref=ts");
+                a.setAttribute("href", "https://www.facebook.com/app_scoped_user_id/" + id + "/");
                 var img = document.createElement("img");
                 img.setAttribute("class", "inline");
                 img.setAttribute("src", "https://graph.facebook.com/" + id + "/picture");
                 a.appendChild(img);
-
 
                 //For showing source
                 var divs = document.createElement("div");
@@ -89,17 +81,9 @@ function callfacebook() {
                 div.appendChild(divs);
                 document.getElementById("result1").appendChild(div);
             }
-            //type=JSONresp["name"].toString();
-            //            code=  JSONresp["code"].toString();
-            //document.getElementById("profile").innerHTML = name;
         }
     }
-} // end of function
-
-function callgoogleplus() {
-    //console.log(xhr1.readyState);
     if (xhr2.readyState === 4) {
-        //            alert(xhr2.status);
         // status of 200 signifies sucessful HTTP call
         if (xhr2.status === 200) {
             var JSONresp = JSON.parse(xhr2.responseText);
@@ -108,7 +92,6 @@ function callgoogleplus() {
             var url = [items.length];
             var urlimg = [items.length];
 
-
             var myNode = document.getElementById("result");
 
             while (myNode.firstChild) {
@@ -116,7 +99,6 @@ function callgoogleplus() {
             }
             var max = 50;
             for (i = 0; i < max; i++) {
-                console.log(items[i].displayName);
                 name = items[i].displayName;
                 url = items[i].url;
                 urlimg = items[i].image.url;
@@ -149,7 +131,6 @@ function callgoogleplus() {
                 divs.appendChild(srcgp);
                 div.appendChild(divs);
 
-
                 //Show name
                 var p = document.createElement("p");
                 var text = document.createTextNode(name);
@@ -160,11 +141,6 @@ function callgoogleplus() {
                 div.appendChild(divs);
                 document.getElementById("result").appendChild(div);
             }
-
-
-            //type=JSONresp["name"].toString();
-            //            code=  JSONresp["code"].toString();
-            //document.getElementById("profile").innerHTML = name;
         }
     }
 } // end of function
